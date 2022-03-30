@@ -1,4 +1,10 @@
 #!/bin/bash
 
-mkdir -p "$(dirname "$1")"
-touch $1
+dirnames=""
+
+for arg in $@; do
+    dirnames+="`dirname ${arg}` "
+done
+
+mkdir -p $dirnames
+touch $@
